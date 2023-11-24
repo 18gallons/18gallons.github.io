@@ -1,0 +1,72 @@
+:root {
+    --portfolio-img: 10em;
+}
+
+main {
+    font-size: 0.65rem;
+}
+
+.section2 h1 {
+    font-size: 2em;
+}
+.section2 .eicon {
+    height: 20em;
+}
+.section2 .desc p {
+    max-width: 90vw;
+    font-size: 1.5em;
+}
+header h1 {
+    font-size: 1em;
+}
+.portfolio-wrapper .card {
+    padding: 7.5px;
+    border-radius: 15px;
+}
+.portfolio-wrapper .card .thumbnail {
+    border-radius: 10px;
+}
+.expand-wrapper img {
+    height: auto;
+    width: 90vw;
+}
+.expand-wrapper .controls .arrow-wrapper .arrow {
+    width: 2.5em;
+}
+.expand-wrapper .close {
+    height: 2em;
+}
+footer {
+    font-size: 0.5rem;
+}
+footer .arrow {
+    height: 3em;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+#scrollbar-container {
+    width: 5px;
+}
+.portfolio-wrapper {
+    gap: 5px;
+}
+.prices .price.button {
+font-size: 1.35em;
+}
+.qcalc.hidden{
+    right: -110vw;
+}
+.qcalc.expanded.hidden {
+    right: -110vw;
+}
+.qcalc {
+    width: calc(100vw - 40px);
+    border-left: 0px;
+    border-radius: none;
+    font-size: 0.65em;
+}
+.qcalc .arrow {
+    display: none;
+}

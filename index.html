@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="eamon keating tacoma washington drone fpv for hire drone">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Eamon Keating</title>
+    <meta property="og:title" content="Eamon Keating">
+    <meta property="twitter:title" content="Eamon Keating">
+    <meta name="og:description" content="">
+    <meta name="twitter:description" content="">
+    
+    <!-- icon hidden for now because there is no icon (yet) -->
+    <!-- <link rel="icon" href="assets/icon.png"> -->
+    <!-- <meta property="og:image" content="assets/icon.png"> -->
+    <!-- <meta property="twitter:image" content="assets/icon.png"> -->
+
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+  <body>
+    <div class="background">
+      <div class="frame-container" id="bg-container">
+        <!-- youtube iframe goes in here!! no way!!!-->
+      </div>
+    </div>
+
+    <div class="expand-wrapper image" style="opacity: 0; display: none;">
+      <img src="assets/eamon.png" id="expand-image" draggable="false">
+      <svg class="close" onclick="close_preview()">
+        <use href="assets/x.svg#img"></use>
+      </svg>
+      <div class="controls">
+        <div class="arrow-wrapper deactivate">
+          <svg class="arrow activate" onclick="preview_switch(-1)">
+            <use href="assets/arrow.svg#img"></use>
+          </svg>
+        </div>
+        <div class="arrow-wrapper deactivate right">
+          <svg class="arrow right activate" onclick="preview_switch(1)">
+            <use href="assets/arrow.svg#img"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="expand-wrapper video" id="video-expand-wrapper" style="opacity: 0; display: none;">
+      <iframe id="preview-yt" frameborder="0"></iframe>
+      <svg class="close" onclick="close_preview()">
+        <use href="assets/x.svg#img"></use>
+      </svg>
+      <div class="controls">
+        <div class="arrow-wrapper deactivate">
+          <svg class="arrow activate" onclick="preview_switch(-1)">
+            <use href="assets/arrow.svg#img"></use>
+          </svg>
+        </div>
+        <div class="arrow-wrapper deactivate right">
+          <svg class="arrow right activate" onclick="preview_switch(1)">
+            <use href="assets/arrow.svg#img"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- custom scrollbar 😔 -->
+    <div id="scrollbar-container" class="disable deactivate" style="transform: translate(100%);">
+      <div id="scrollbar-thumb" class="disable deactivate"></div>
+    </div>
+
+    <div class="qcalc hidden" id="qcalc">
+      <div class="controls">
+        <svg class="arrow" onclick="expand_qcalc()">
+          <use href="assets/arrow.svg#img"></use>
+        </svg>
+        <svg class="x" onclick="close_qcalc()">
+          <use href="assets/x.svg#img"></use>
+        </svg>
+      </div>
+
+      <h1>Custom Quote Calculator</h1>
+      <p>Select what you would like for your project, and instantly get an estimate!</p>
+
+      <div class="divider" style="margin-bottom: 10px;"></div>
+      
+      <div class="options" id="qcalc-options">
+        <div class="card-wrapper hide" id="template-option">
+          <div class="card">
+            <h1 class="title">title</h1>
+            <p class="desc">description</p>
+            <div class="divider"></div>
+            <input type="number" min="0" placeholder="Quantity">
+            <h2 class="price">$50</h2>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+      
+      <div class="quote-wrapper">
+        <h2>Calculated Estimate</h2>
+        <p>(This price is not final, this is just a tool to help you make a decision)</p>
+        <br>
+        <table class="quote">
+          <tr class="titles">
+            <th>Option</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <tbody class="list">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <header style="transform: translate(0px, -100%);">
+      <h1>EAMON KEATING</h1>
+    </header>
+
+    <main>
+      <div class="section section1" id="section1">
+        <div style="height: 40vh;"></div>
+        <h1>Eamon Keating</h1>
+        <h2>Drone Photo/Video Specialist</h2>
+
+        <svg class="arrow" onclick="scrollto('#section2')">
+          <use href="assets/arrow.svg#img"></use>
+        </svg>
+      </div>
+      <div class="section bg section2" id="section2">
+        <br><br>
+        <h1>About</h1>
+        <!-- <p>hello this is about eamon keating</p> -->
+        <br>
+        <img src="assets/eamonportrait.png" class="round eicon" draggable="false">
+        <br><br>
+        <div class="desc">
+          <p>I am a passionate freelance drone photographer and videographer. Specializing in both FPV (First Person View) and traditional drone piloting, I bring a unique blend of creativity and technical skill to every project. My journey in aerial cinematography has allowed me to explore diverse landscapes and tell compelling visual stories. From soaring through FPV freestyle maneuvers to capturing cinematic vistas with traditional drones, I thrive on pushing the boundaries of what is possible in aerial photography. I am dedicated to delivering captivating visuals that leave a lasting impression, and I look forward to bringing my skills to your next project.</p>
+        </div>
+
+      </div>
+      <div class="section bg section3 divider" id="section3">
+        <br><br>
+        <h1>Portfolio</h1>
+        <br>
+        <div class="portfolio-wrapper" id="portfolio">
+          <div class="arrow-wrapper deactivate" id="pf-left" onclick="gallery_move(-1)">
+            <svg class="arrow activate">
+              <use href="assets/arrow.svg#img"></use>
+            </svg>
+          </div>
+          <div class="arrow-wrapper deactivate right" id="pf-right" onclick="gallery_move(1)">
+            <svg class="arrow activate" >
+              <use href="assets/arrow.svg#img"></use>
+            </svg>
+          </div>
+          <div class="card hide" id="template-portfolio-photo">
+            <div class="thumbnail">
+              <img src="" draggable="false">
+            </div>
+          </div>
+          <div class="card video hide" id="template-portfolio-video">
+            <div class="thumbnail">
+              <div class="base deactivate"></div>
+              <img src="" draggable="false">
+              <div class="overlay deactivate"></div>
+              <svg class="play deactivate">
+                <use href="assets/play.svg#img"></use>
+              </svg>
+            </div>
+          </div>
+
+          
+        </div>
+        
+      </div>
+      <div class="section bg section4 divider" id="section4">
+        <br>
+        <h1>Pricing</h1>
+        <div class="prices" id="prices">
+          <div class="card-wrapper hide" id="template-price">
+            <div class="card">
+              <h1 class="title">title</h1>
+              <p class="desc">description</p>
+              <div class="divider"></div>
+              <p class="include-label">Package includes:</p>
+              <div class="list-wrapper">
+                <p class="item hide" id="template-item">
+                  <svg class="bullet">
+                    <use href="assets/dot.svg#img"></use>
+                  </svg>
+                  <span>hello</span>
+                </p>
+  
+              </div>
+              <div style="margin-top: 10px; height: 0px; width: 100%;"></div>
+              <div class="divider" style="margin-top: auto;"></div>
+              <h2 class="price">$50</h2>
+            </div>
+          </div>
+
+
+        </div>
+        
+      </div>
+      <div class="section bg section5 divider" id="section5">
+        <br>
+        <h1>Contact</h1>
+
+        
+      </div>
+
+      <footer>
+        <h1>©2023 Eamon Keating. Website designed by <a href="https://dapug/lol">dapug.lol</a></h1>
+        <svg class="arrow push" onclick="scrollto('#section1')">
+          <use href="assets/arrow.svg#img"></use>
+        </svg>
+        <div style="width: 2em;"></div>
+        <!-- <img src="assets/notepad.png" class="notepad" draggable="false"> -->
+        <!-- made in notepad!!! (the right way) -->
+      </footer>
+
+    </main>
+
+    <style id="section-bgcol"></style>
+
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
