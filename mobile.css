@@ -70,3 +70,7 @@ font-size: 1.35em;
 .qcalc .arrow {
     display: none;
 }
+.appointment-form {
+    width: 90vw;
+    height: 90vh;
+}

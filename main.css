@@ -41,6 +41,8 @@ COLOUR DEFINITIONS */
     --qcalc-number-bg: #202020;
     --qcalc-number-border: #292929;
     --qcalc-pql: #9b9b9b;
+    --form-bg: #dadada;
+    --form-border: #c2c2c2;
 
     --portfolio-img: 15em;
 }
@@ -749,4 +751,15 @@ table.quote tbody .titles {
 }
 table.quote tbody tr:nth-child(even) {
     background-color: var(--qcalc-card-bg-alt);
+}
+
+
+
+.appointment-form {
+    width: 50vw;
+    height: 70vh;
+    background-color: var(--form-bg);
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid var(--form-border);
 }
