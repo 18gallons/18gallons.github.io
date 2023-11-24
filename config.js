@@ -240,7 +240,17 @@ var config = {
         },
 
     ],
-    "custom quote base price": [50, 100],
+    "fees": [
+        {   // keep the base price at the top
+            "name": "Base Price",
+            "price": [50, 100],
+        },
+        {
+            "name": "Location fee",
+            "price": [100]
+        }
+        
+    ],
     "quote options": [
         // custom quote options
 
@@ -268,6 +278,5 @@ var config = {
             "max": 100,
             "placeholder": "Funnies"
         },
-
     ]
 }

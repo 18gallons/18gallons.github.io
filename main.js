@@ -528,12 +528,31 @@ generate_reciept = setInterval(() => {
     if (custom_quote == true) {
         // makey reciept
         receipt_html = "";
-        var total_money = [ ...config["custom quote base price"] ];
+        var total_money = [ ...config["fees"][0]["price"] ];
 
-        if (config["custom quote base price"][0] == config["custom quote base price"][1]) { // no range
-            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["custom quote base price"])}</td> </tr>`
+        if (config["fees"][0]["price"][0] == config["fees"][0]["price"][1]) { // no range
+            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["fees"][0]["price"])}</td> </tr>`
         } else {    // range
-            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["custom quote base price"][0])}–$${price_display(config["custom quote base price"][1])}</td> </tr>`
+            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["fees"][0]["price"][0])}–$${price_display(config["fees"][0]["price"][1])}</td> </tr>`
+        }
+
+        function make_price_line(name, quantity, price) {
+            var final_price = "";
+            var display_quantity = quantity;
+            if (quantity == "") {
+                quantity = 1;
+            }
+            if (price.length == 1) {
+                total_money[0] += quantity * price[0];
+                total_money[1] += quantity * price[0];
+                final_price = `$${price_display(quantity * price[0])}`;
+            } else {
+                total_money[0] += quantity * price[0];
+                total_money[1] += quantity * price[1];
+                final_price = `$${price_display(quantity * price[0])}–$${price_display(quantity * price[1])}`;
+            }
+            return `\n<tr> <td>${name}</td> <td>${display_quantity}</td> <td>${final_price}</td> </tr>`
+            
         }
 
         for (i in full_option_list) {
@@ -545,19 +564,18 @@ generate_reciept = setInterval(() => {
             quantity = parseInt(quantity);
 
             if (quantity != 0) {
-                var final_price = "";
-                if (info["price"].length == 1) {
-                    total_money[0] += quantity * info["price"][0];
-                    total_money[1] += quantity * info["price"][0];
-                    final_price = `$${price_display(quantity * info["price"][0])}`;
-                } else {
-                    total_money[0] += quantity * info["price"][0];
-                    total_money[1] += quantity * info["price"][1];
-                    final_price = `$${price_display(quantity * info["price"][0])}–$${price_display(quantity * info["price"][1])}`;
-                }
-                receipt_html += `\n<tr> <td>${info["name"]}</td> <td>${quantity}</td> <td>${final_price}</td> </tr>`
+                receipt_html += make_price_line(info["name"], quantity, info["price"]);
             }
         }
+
+        for (i in config["fees"]){
+            if (i != 0) {
+                receipt_html += make_price_line(config["fees"][i]["name"], "", config["fees"][i]["price"]);
+            }
+        }
+
+
+        // total
         if (total_money[0] == total_money[1]) { // no range
             receipt_html += `\n<tr> <td>Total</td> <td></td> <td>$${price_display(total_money[0])}</td> </tr>`
         } else {    // range
