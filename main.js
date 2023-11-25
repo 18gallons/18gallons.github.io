@@ -357,8 +357,13 @@ document.addEventListener('keydown', (event) => {
 
 // PRICES STUFF
 
+function money_round(num) {
+    return Math.ceil(num * 100) / 100;
+}
+
 function price_display(price) { // convert a number like 10.9 to 10.90 for displaying the price
     var string_out = "";
+    price = money_round(price);
     var price_split = `${price}`.split(".");
     for (i in price_split) {
         if (i == 1) {
@@ -380,8 +385,6 @@ function price_display(price) { // convert a number like 10.9 to 10.90 for displ
             }
             hee = hee.reverse();
             string_out += hee.join("");
-
-
         } else {
             string_out += `${price_split[i]}`;
         }
@@ -496,7 +499,6 @@ function generate_options() {
             node.querySelector(".price").innerHTML = price_string;
         }
 
-
         node.querySelector("input").setAttribute("min", info["min"]);
         node.querySelector("input").setAttribute("placeholder", info["placeholder"]);
         if (info["max"] == 1) {
@@ -516,8 +518,36 @@ function generate_options() {
             } else {
                 event.srcElement.value = parseInt(event.srcElement.value);
             }
-        })
-        
+        });
+
+        node.querySelector("svg").setAttribute("option", `${i}`);
+        node.querySelector("svg").addEventListener("click", (event) => {
+            console.log(event.srcElement.classList.contains("checked"));
+            if (event.srcElement.classList.contains("checked")) {
+                // make it not checked
+                event.srcElement.classList.remove("checked");
+                event.srcElement.querySelector(".l1").classList.remove("checked");
+                setTimeout(() => {
+                    console.log(event)
+                    event.srcElement.querySelector(".l2").classList.remove("checked");
+                }, 100, event) // if you change this, remember to change it in css!!!!!!!!
+            } else {
+                // make it checked
+                event.srcElement.classList.add("checked");
+                event.srcElement.querySelector(".l2").classList.add("checked");
+                setTimeout(() => {
+                    console.log(event)
+                    event.srcElement.querySelector(".l1").classList.add("checked");
+                }, 100, event) // if you change this, remember to change it in css!!!!!!!!
+            }
+        });
+
+        if (info["max"] == 1) {
+            node.querySelector("input").remove();
+        } else {
+            node.querySelector("svg").remove();
+        }
+
         document.querySelector("#qcalc-options").appendChild(node);
 
     }
@@ -557,9 +587,17 @@ generate_reciept = setInterval(() => {
 
         for (i in full_option_list) {
             var info = full_option_list[i];
-            var quantity = document.querySelector(`.card-wrapper[option="${i}"] input`).value;
+            var quantity = document.querySelector(`.card-wrapper[option="${i}"] .quantity`).value;
             if (quantity == '') {
                 quantity = 0;
+            }
+            if ( document.querySelector(`.card-wrapper[option="${i}"] .quantity`).classList.contains("checkbox")) {
+                quantity = document.querySelector(`.card-wrapper[option="${i}"] .quantity`).classList.contains("checked");
+                if (quantity == true) {
+                    quantity = 1;
+                } else {
+                    quantity = 0;
+                }
             }
             quantity = parseInt(quantity);
 

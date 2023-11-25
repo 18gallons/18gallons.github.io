@@ -278,5 +278,13 @@ var config = {
             "max": 100,
             "placeholder": "Funnies"
         },
+        {
+            "name": "ALL funny!!!",
+            "description": "for those who LOVE!! the funny.",
+            "price": [499.99],
+            "min": 0,
+            "max": 100,
+            "placeholder": "Funnies"
+        },
     ]
 }

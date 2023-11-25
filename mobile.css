@@ -74,3 +74,10 @@ font-size: 1.35em;
     width: 90vw;
     height: 90vh;
 }
+main.e404 {
+    font-size: 1rem;
+}
+main.e404 h1, main.e404 p {
+    max-width: 90vw;
+    text-align: center;
+}
