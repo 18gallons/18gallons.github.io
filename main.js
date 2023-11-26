@@ -357,8 +357,13 @@ document.addEventListener('keydown', (event) => {
 
 // PRICES STUFF
 
+function money_round(num) {
+    return Math.ceil(num * 100) / 100;
+}
+
 function price_display(price) { // convert a number like 10.9 to 10.90 for displaying the price
     var string_out = "";
+    price = money_round(price);
     var price_split = `${price}`.split(".");
     for (i in price_split) {
         if (i == 1) {
@@ -380,8 +385,6 @@ function price_display(price) { // convert a number like 10.9 to 10.90 for displ
             }
             hee = hee.reverse();
             string_out += hee.join("");
-
-
         } else {
             string_out += `${price_split[i]}`;
         }
@@ -496,7 +499,6 @@ function generate_options() {
             node.querySelector(".price").innerHTML = price_string;
         }
 
-
         node.querySelector("input").setAttribute("min", info["min"]);
         node.querySelector("input").setAttribute("placeholder", info["placeholder"]);
         if (info["max"] == 1) {
@@ -516,8 +518,36 @@ function generate_options() {
             } else {
                 event.srcElement.value = parseInt(event.srcElement.value);
             }
-        })
-        
+        });
+
+        node.querySelector("svg").setAttribute("option", `${i}`);
+        node.querySelector("svg").addEventListener("click", (event) => {
+            console.log(event.srcElement.classList.contains("checked"));
+            if (event.srcElement.classList.contains("checked")) {
+                // make it not checked
+                event.srcElement.classList.remove("checked");
+                event.srcElement.querySelector(".l1").classList.remove("checked");
+                setTimeout(() => {
+                    console.log(event)
+                    event.srcElement.querySelector(".l2").classList.remove("checked");
+                }, 100, event) // if you change this, remember to change it in css!!!!!!!!
+            } else {
+                // make it checked
+                event.srcElement.classList.add("checked");
+                event.srcElement.querySelector(".l2").classList.add("checked");
+                setTimeout(() => {
+                    console.log(event)
+                    event.srcElement.querySelector(".l1").classList.add("checked");
+                }, 100, event) // if you change this, remember to change it in css!!!!!!!!
+            }
+        });
+
+        if (info["max"] == 1) {
+            node.querySelector("input").remove();
+        } else {
+            node.querySelector("svg").remove();
+        }
+
         document.querySelector("#qcalc-options").appendChild(node);
 
     }
@@ -528,36 +558,62 @@ generate_reciept = setInterval(() => {
     if (custom_quote == true) {
         // makey reciept
         receipt_html = "";
-        var total_money = [ ...config["custom quote base price"] ];
+        var total_money = [ ...config["fees"][0]["price"] ];
 
-        if (config["custom quote base price"][0] == config["custom quote base price"][1]) { // no range
-            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["custom quote base price"])}</td> </tr>`
+        if (config["fees"][0]["price"][0] == config["fees"][0]["price"][1]) { // no range
+            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["fees"][0]["price"])}</td> </tr>`
         } else {    // range
-            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["custom quote base price"][0])}–$${price_display(config["custom quote base price"][1])}</td> </tr>`
+            receipt_html += `\n<tr> <td>Base price</td> <td></td> <td>$${price_display(config["fees"][0]["price"][0])}–$${price_display(config["fees"][0]["price"][1])}</td> </tr>`
+        }
+
+        function make_price_line(name, quantity, price) {
+            var final_price = "";
+            var display_quantity = quantity;
+            if (quantity == "") {
+                quantity = 1;
+            }
+            if (price.length == 1) {
+                total_money[0] += quantity * price[0];
+                total_money[1] += quantity * price[0];
+                final_price = `$${price_display(quantity * price[0])}`;
+            } else {
+                total_money[0] += quantity * price[0];
+                total_money[1] += quantity * price[1];
+                final_price = `$${price_display(quantity * price[0])}–$${price_display(quantity * price[1])}`;
+            }
+            return `\n<tr> <td>${name}</td> <td>${display_quantity}</td> <td>${final_price}</td> </tr>`
+            
         }
 
         for (i in full_option_list) {
             var info = full_option_list[i];
-            var quantity = document.querySelector(`.card-wrapper[option="${i}"] input`).value;
+            var quantity = document.querySelector(`.card-wrapper[option="${i}"] .quantity`).value;
             if (quantity == '') {
                 quantity = 0;
+            }
+            if ( document.querySelector(`.card-wrapper[option="${i}"] .quantity`).classList.contains("checkbox")) {
+                quantity = document.querySelector(`.card-wrapper[option="${i}"] .quantity`).classList.contains("checked");
+                if (quantity == true) {
+                    quantity = 1;
+                } else {
+                    quantity = 0;
+                }
             }
             quantity = parseInt(quantity);
 
             if (quantity != 0) {
-                var final_price = "";
-                if (info["price"].length == 1) {
-                    total_money[0] += quantity * info["price"][0];
-                    total_money[1] += quantity * info["price"][0];
-                    final_price = `$${price_display(quantity * info["price"][0])}`;
-                } else {
-                    total_money[0] += quantity * info["price"][0];
-                    total_money[1] += quantity * info["price"][1];
-                    final_price = `$${price_display(quantity * info["price"][0])}–$${price_display(quantity * info["price"][1])}`;
-                }
-                receipt_html += `\n<tr> <td>${info["name"]}</td> <td>${quantity}</td> <td>${final_price}</td> </tr>`
+                receipt_html += make_price_line(info["name"], quantity, info["price"]);
             }
         }
+
+        for (i in config["fees"]){
+            if (i != 0) {
+                receipt_html += make_price_line(config["fees"][i]["name"], "", config["fees"][i]["price"]);
+            }
+        }
+
+
+        // total
         if (total_money[0] == total_money[1]) { // no range
             receipt_html += `\n<tr> <td>Total</td> <td></td> <td>$${price_display(total_money[0])}</td> </tr>`
         } else {    // range
