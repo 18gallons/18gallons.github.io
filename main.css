@@ -14,6 +14,7 @@ COLOUR DEFINITIONS */
 :root {
     --page-bg: #0e0e0e;
     --page-main: #ffffff;
+    --page-accent: #9642c7;
     --page-alt: #d1d1d1;
     --header-bg: #47474720;
     --section-bg: #0e0e0e;
@@ -41,6 +42,11 @@ COLOUR DEFINITIONS */
     --qcalc-number-bg: #202020;
     --qcalc-number-border: #292929;
     --qcalc-pql: #9b9b9b;
+    --checkbox-bg: #333333;
+    --checkbox-tr-duration: 200ms;
+    --checkbox-ch-duration: 100ms; /* REMEMBER if you change this, change it in the javascript too!!!! */
+    --form-bg: #dadada;
+    --form-border: #c2c2c2;
 
     --portfolio-img: 15em;
 }
@@ -722,6 +728,50 @@ PRICES */
     padding: 5px;       
     width: calc(100% - 10px);
 }
+.checkbox {
+    border-radius: 5px;
+    transition-duration: var(--checkbox-tr-duration);
+    height: 2em;
+    cursor: pointer;
+}
+.checkbox .bg {
+    fill: var(--checkbox-bg);
+    transition-duration: var(--checkbox-tr-duration);
+}
+.checkbox .check-wrapper {
+    transform: translate(-0.4px, 0.9px);
+}
+.checkbox .check {
+    fill: var(--page-main);
+    transform-origin: top left;
+    transition-duration: var(--checkbox-ch-duration);
+    transition-timing-function: linear;
+}
+.checkbox .l1.checked  {
+    transform: translate(3.5px,3.5px) rotate(-45deg) scaleX(1);
+    /* transition-timing-function: ease-in; */
+}
+.checkbox .l2.checked  {
+    transform: translate(2.15px,2.0125px) rotate(45deg) scaleX(1);
+    /* transition-timing-function: ease-out; */
+}
+.checkbox .l1{
+    transform: translate(3.5px,3.5px) rotate(-45deg) scaleX(0);
+    /* transition-timing-function: ease-out; */
+}
+.checkbox .l2 {
+    transform: translate(2.15px,2.0125px) rotate(45deg) scaleX(0);
+    /* transition-timing-function: ease-in; */
+}
+.checkbox.checked .bg  {
+    fill: var(--page-accent);
+}
+
+.qcalc .card .checkbox {
+    margin-top: 10px;
+}
+
+
 .quote-wrapper {
     width: 100%;
     display: flex;
@@ -749,4 +799,49 @@ table.quote tbody .titles {
 }
 table.quote tbody tr:nth-child(even) {
     background-color: var(--qcalc-card-bg-alt);
+}
+
+
+
+/*     ______  ____    _   __  ______  ___      ______  ______ 
+      / ____/ / __ \  / | / / /_  __/ /   |    / ____/ /_  __/
+     / /     / / / / /  |/ /   / /   / /| |   / /       / /  
+    / /___  / /_/ / / /|  /   / /   / ___ |  / /___    / /  
+    \____/  \____/ /_/ |_/   /_/   /_/  |_|  \____/   /_/  
+*/
+
+
+.appointment-form {
+    width: 50vw;
+    height: 70vh;
+    background-color: var(--form-bg);
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid var(--form-border);
+}
+
+
+
+
+
+
+/*     __ __    ____    __ __        ____    ___      ______  ______ 
+      / // /   / __ \  / // /       / __ \  /   |    / ____/ / ____/
+     / // /_  / / / / / // /_      / /_/ / / /| |   / / __  / __/  
+    /__  __/ / /_/ / /__  __/     / ____/ / ___ |  / /_/ / / /___ 
+      /_/    \____/    /_/       /_/     /_/  |_|  \____/ /_____/
+*/
+
+main.e404 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.35rem;
+    color: var(--page-main);
+}
+main.e404 p {
+    color: var(--page-alt);
 }
