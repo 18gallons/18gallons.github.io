@@ -38,7 +38,6 @@ if (windowWidth < windowHeight) {
     document.head.appendChild(node);
     mobile = true;
 }
-                                                                                                      
 
 
 
@@ -180,30 +179,46 @@ function gallery_move(direction) {
 
 
 
-function scrollbar_update() {
-    windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    scroll_height = Math.max( document.querySelector("main").scrollHeight, document.querySelector("main").offsetHeight );
-    scroll_amount = document.querySelector("main").scrollTop;
+// function scrollbar_update() {
+//     windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+//     windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+//     scroll_height = Math.max( document.querySelector("main").scrollHeight, document.querySelector("main").offsetHeight );
+//     scroll_amount = document.querySelector("main").scrollTop;
 
-    thumb_height = (windowHeight / scroll_height ) * 1250;
+//     thumb_height = (windowHeight / scroll_height ) * 1250;
 
-    scroll_percentage = ( scroll_amount / (scroll_height - windowHeight) );
+//     scroll_percentage = ( scroll_amount / (scroll_height - windowHeight) );
 
-    display_scroll_amount = ( scroll_percentage * (windowHeight - thumb_height ) );
+//     display_scroll_amount = ( scroll_percentage * (windowHeight - thumb_height ) );
 
-    //console.log("page height", scroll_height, "scroll amount", scroll_amount, "window height", windowHeight, "scroll percentage", scroll_percentage);
+//     //console.log("page height", scroll_height, "scroll amount", scroll_amount, "window height", windowHeight, "scroll percentage", scroll_percentage);
 
-    document.querySelector("#scrollbar-thumb").style = `height: ${thumb_height}px; transform: translateY(calc(${display_scroll_amount}px));`;
+//     document.querySelector("#scrollbar-thumb").style = `height: ${thumb_height}px; transform: translateY(calc(${display_scroll_amount}px));`;
+// }
+
+// scrollbar_update();
+// setInterval(scrollbar_update, 1000);
+
+function update_scrollbar() {
+    var bio_rects = document.querySelector(".section2").getClientRects()[0];
+    
+    if (bio_rects.y > 0) {
+        document.querySelector(".sc-bio").style.top = `${bio_rects.y}px`;    
+    } else {
+        document.querySelector(".sc-bio").style.top = `0px`;    
+    }
+    
 }
 
-scrollbar_update();
-setInterval(scrollbar_update, 1000);
+update_scrollbar();
 
+document.addEventListener('resize', () => {
+    update_scrollbar();
+});
 
 function page_scroll() {
     scroll_amount = document.querySelector("main").scrollTop;
-    scrollbar_update();
+    update_scrollbar();
 
     document.querySelector("#scrollbar-container").style = `transform: translate(0px);`;
 

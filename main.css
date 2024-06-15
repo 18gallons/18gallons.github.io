@@ -103,7 +103,7 @@ main {
     overflow-x: hidden;
     position: relative;
     z-index: 5;
-    scrollbar-gutter: none;
+    /* scrollbar-gutter: none; */
 }
 main div {
     width: 100vw;
@@ -132,14 +132,11 @@ a {
 /____/  \____/ /_/ |_|  \____/ /_____/ /_____/ /_____/ /_/  |_| /_/ |_|
 SCROLLBAR */
 
-main::-webkit-scrollbar {
-    display: none;
-    position: fixed;
-}
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
     position: fixed;
+    z-index: 1000;
 }
 ::-webkit-scrollbar-button {
     display: none;
@@ -159,7 +156,21 @@ main::-webkit-scrollbar {
 
 /*haha i stole this code from the dogecoin website*/
 
-#scrollbar-container {
+.scrollbar-background {
+    position: fixed;
+}
+
+.scrollbar-background .sc-bio {
+    position: fixed;
+    width: 20px;
+    height: 100vh;
+    z-index: -10;
+    background-color: var(--page-bg);
+    top: 100vw;
+    right: 0px;
+}
+
+/* #scrollbar-container {
     width: 10px;
     height: 100vh;
     position: fixed;
@@ -173,7 +184,7 @@ main::-webkit-scrollbar {
     min-height: 10px;
     background-color: var(--page-main);
     border-radius: 10px;
-}
+} */
 
 
 /*     ____    ___      ______  __ __   ______  ____    ____    __  __  _   __  ____   
