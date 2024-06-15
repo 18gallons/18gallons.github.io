@@ -54,6 +54,9 @@ footer .arrow {
 #scrollbar-container {
     width: 5px;
 }
+.scrollbar-background {
+    display: none;
+}
 .portfolio-wrapper {
     gap: 5px;
 }
