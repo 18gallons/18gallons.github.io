@@ -6,6 +6,11 @@ main {
     font-size: 0.65rem;
 }
 
+.section1 .mobile-note {
+    display: unset;
+    font-size: 1.25em;
+    max-width: 90vw;
+}
 .section2 h1 {
     font-size: 2em;
 }
@@ -64,7 +69,7 @@ font-size: 1.35em;
 .qcalc {
     width: calc(100vw - 40px);
     border-left: 0px;
-    border-radius: none;
+    border-radius: 0px;
     font-size: 0.65em;
 }
 .qcalc .arrow {

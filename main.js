@@ -16,6 +16,7 @@
 
 var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+var mobile = false;
 var scroll_amount = document.querySelector("main").scrollTop;
 var scroll_height = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
 var scroll_percentage = 0;
@@ -35,8 +36,8 @@ if (windowWidth < windowHeight) {
     node.setAttribute("rel", "stylesheet");
     node.setAttribute("href", `mobile.css`);
     document.head.appendChild(node);
+    mobile = true;
 }
-                                                                                                      
 
 
 
@@ -49,12 +50,19 @@ if (windowWidth < windowHeight) {
 
 // https://www.youtube-nocookie.com/embed/XIAM41gKPmk?autoplay=1&mute=1&controls=0&loop=1&rel=0&showinfo=0&enablejsapi=1&playlist=XIAM41gKPmk
 
+
 // make the embed
-var node = document.createElement("iframe");
-node.setAttribute("id", "bg-yt");
-node.setAttribute("src", `https://www.youtube-nocookie.com/embed/${config["bg video"]}?autoplay=1&mute=1&controls=0&loop=1&rel=0&showinfo=0&enablejsapi=1&playlist=${config["bg video"]}`);
-node.setAttribute("frameborder", "0");
-document.querySelector("#bg-container").appendChild(node);
+if (mobile == false) {
+    var node = document.createElement("iframe");
+    node.setAttribute("id", "bg-yt");
+    node.setAttribute("src", `https://www.youtube-nocookie.com/embed/${config["bg video"]}?autoplay=1&mute=1&controls=0&loop=1&rel=0&showinfo=0&enablejsapi=1&playlist=${config["bg video"]}`);
+    node.setAttribute("frameborder", "0");
+    document.querySelector("#bg-container").appendChild(node);
+} else {
+    var node = document.createElement("img");
+    node.setAttribute("src", `${config["bg photo"]}`);
+    document.querySelector("#bg-container").appendChild(node);
+}
 
 
 // the other funny
@@ -66,13 +74,19 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 console.log('yt scripts loaded');
 var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('bg-yt', {
-        events: {
-            //'onStateChange': onPlayerStateChange
-        }
-    });
+
+if (mobile == false) {
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('bg-yt', {
+            events: {
+                //'onStateChange': onPlayerStateChange
+            }
+        });
+    }
 }
+
+
+
 
 var preview_player;
 
@@ -165,30 +179,46 @@ function gallery_move(direction) {
 
 
 
-function scrollbar_update() {
-    windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    scroll_height = Math.max( document.querySelector("main").scrollHeight, document.querySelector("main").offsetHeight );
-    scroll_amount = document.querySelector("main").scrollTop;
+// function scrollbar_update() {
+//     windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+//     windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+//     scroll_height = Math.max( document.querySelector("main").scrollHeight, document.querySelector("main").offsetHeight );
+//     scroll_amount = document.querySelector("main").scrollTop;
 
-    thumb_height = (windowHeight / scroll_height ) * 1250;
+//     thumb_height = (windowHeight / scroll_height ) * 1250;
 
-    scroll_percentage = ( scroll_amount / (scroll_height - windowHeight) );
+//     scroll_percentage = ( scroll_amount / (scroll_height - windowHeight) );
 
-    display_scroll_amount = ( scroll_percentage * (windowHeight - thumb_height ) );
+//     display_scroll_amount = ( scroll_percentage * (windowHeight - thumb_height ) );
 
-    //console.log("page height", scroll_height, "scroll amount", scroll_amount, "window height", windowHeight, "scroll percentage", scroll_percentage);
+//     //console.log("page height", scroll_height, "scroll amount", scroll_amount, "window height", windowHeight, "scroll percentage", scroll_percentage);
 
-    document.querySelector("#scrollbar-thumb").style = `height: ${thumb_height}px; transform: translateY(calc(${display_scroll_amount}px));`;
+//     document.querySelector("#scrollbar-thumb").style = `height: ${thumb_height}px; transform: translateY(calc(${display_scroll_amount}px));`;
+// }
+
+// scrollbar_update();
+// setInterval(scrollbar_update, 1000);
+
+function update_scrollbar() {
+    var bio_rects = document.querySelector(".section2").getClientRects()[0];
+    
+    if (bio_rects.y > 0) {
+        document.querySelector(".sc-bio").style.top = `${bio_rects.y}px`;    
+    } else {
+        document.querySelector(".sc-bio").style.top = `0px`;    
+    }
+    
 }
 
-scrollbar_update();
-setInterval(scrollbar_update, 1000);
+update_scrollbar();
 
+document.addEventListener('resize', () => {
+    update_scrollbar();
+});
 
 function page_scroll() {
     scroll_amount = document.querySelector("main").scrollTop;
-    scrollbar_update();
+    update_scrollbar();
 
     document.querySelector("#scrollbar-container").style = `transform: translate(0px);`;
 
@@ -198,24 +228,26 @@ function page_scroll() {
     }, 1000);
 
 
-    if (scroll_amount > windowHeight + 100) {
-        if (video_paused == false) {
-            // pause video (to save resources)
-            player.pauseVideo();
-            video_paused = true;
-            console.log("pausing video to save resouces...");
-            document.querySelector(".background .frame-container").style.display = "none";
-        }
-    } else {
-        
-        if (video_paused == true) {
-            // unpause
-            player.playVideo();
-            video_paused = false;
-            console.log("resuming video...");
-            document.querySelector(".background .frame-container").style.display = "block";
-        }
+    if (mobile == false) {
+        if (scroll_amount > windowHeight + 100) {
+            if (video_paused == false) {
+                // pause video (to save resources)
+                player.pauseVideo();
+                video_paused = true;
+                console.log("pausing video to save resouces...");
+                document.querySelector(".background .frame-container").style.display = "none";
+            }
+        } else {
+            
+            if (video_paused == true) {
+                // unpause
+                player.playVideo();
+                video_paused = false;
+                console.log("resuming video...");
+                document.querySelector(".background .frame-container").style.display = "block";
+            }
 
+        }
     }
 
     /*
