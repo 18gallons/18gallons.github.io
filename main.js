@@ -29,6 +29,9 @@ var preview_id = 0;
 var custom_quote = false;
 
 
+var disable_prices = true;
+
+
 // mobile css styling (yes mobile support!! fancy, innit??)
 if (windowWidth < windowHeight) {
     // MOBILE!!!
@@ -427,6 +430,10 @@ function price_display(price) { // convert a number like 10.9 to 10.90 for displ
 
 function generate_prices() {
 
+    if (disable_prices == true) {
+        delete config["packages"][config["packages"].length - 1];
+    }
+
     for (i in config["packages"]) {
         var info = config["packages"][i]
         var node = document.querySelector("#template-price").cloneNode(true);
@@ -446,16 +453,20 @@ function generate_prices() {
             node.querySelector(".price").innerHTML = "Open Custom Quote Calculator";
             node.querySelector(".price").setAttribute("onclick", "open_qcalc()");
         } else if (info["price"].length == 1) { // single price
-            node.querySelector(".price").innerHTML = `$${price_display(info["price"][0])}`;
-        } else { // price range
-            var price_string = "";
-            for (e in info["price"]) {
-                if (e == 1) {
-                    price_string += "–"
-                }
-                price_string += `$${price_display(info["price"][e])}`;
+            if (disable_prices == false) {
+                node.querySelector(".price").innerHTML = `$${price_display(info["price"][0])}`;
             }
-            node.querySelector(".price").innerHTML = price_string;
+        } else { // price range
+            if (disable_prices == false) {
+                var price_string = "";
+                for (e in info["price"]) {
+                    if (e == 1) {
+                        price_string += "–"
+                    }
+                    price_string += `$${price_display(info["price"][e])}`;
+                }
+                node.querySelector(".price").innerHTML = price_string;
+            }
         }
         document.querySelector("#prices").appendChild(node);
 
