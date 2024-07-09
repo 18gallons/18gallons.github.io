@@ -7,148 +7,45 @@ var config = {
 
     "portfolio media": [       // put le images
         {
+            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
+            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
+            "type": 2                           // type 1 = photo, type 2 = video
+        },
+        {
+            "src": "assets/style_city.png",
+            "type": 1   // type 1 = photo, type 2 = video
+        },
+        {
+            "src": "assets/style_containership.png",
+            "type": 1   // type 1 = photo, type 2 = video
+        },
+        {
+            "src": "assets/style_tacomanport.png",
+            "type": 1   // type 1 = photo, type 2 = video
+        },
+        {
             "src": "assets/tiltshift01.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
+            "src": "assets/KeatingE_WPC_Pattern.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
+            "src": "assets/KeatingE_WPC_Curves.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
+            "src": "assets/KeatingE_04_01.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
+            "src": "assets/KeatingE_04_05.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
+            "src": "assets/wes anderson lookin shot.png",
             "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "assets/eamon.png",
-            "type": 1   // type 1 = photo, type 2 = video
-        },
-        {
-            "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
-            "type": 2                           // type 1 = photo, type 2 = video
         },
     ],
     "packages": [   // list of all of your base packages (tm)
@@ -185,7 +82,7 @@ var config = {
             ],
             "price": [500, 700]
         },
-        {
+/*        {
             "name": "FPV Aerial Videography",
             "description": "A more maneuverable drone, suited to action scenes",
             "features": [
@@ -222,7 +119,7 @@ var config = {
                 "House exterior 3D model"
             ],
             "price": [300, 550]
-        },
+        }, */
 
 
         // MAKE SURE THIS ENTRY STAYS AT THE BOTTOM !!!
