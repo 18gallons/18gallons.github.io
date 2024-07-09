@@ -6,7 +6,7 @@ var config = {
 
     "portfolio media": [       // put le images
         {
-            "src": "assets/eamon.png",
+            "src": "assets/tiltshift01.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
