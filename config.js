@@ -2,7 +2,8 @@
 
 
 var config = {
-    "bg video": "ZN6MnEeNYO8",  // youtube video ID for the main background video
+    "bg video": "ZN6MnEeNYO8",  // youtube video ID for the main background video,
+    "bg photo": "assets/thumbnails/finalfinal5.png",    // photo bg for mobile
 
     "portfolio media": [       // put le images
         {

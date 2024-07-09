@@ -65,9 +65,10 @@
     </div>
 
     <!-- custom scrollbar 😔 -->
-    <div id="scrollbar-container" class="disable deactivate" style="transform: translate(100%);">
+    <!-- HAHAHAAAA I FIGURED OUT HOW I DONT HAVE TO MAKE A CUSTOM SCROLLBAR!!! TEEHEE!! -->
+    <!-- <div id="scrollbar-container" class="disable deactivate" style="transform: translate(100%);">
       <div id="scrollbar-thumb" class="disable deactivate"></div>
-    </div>
+    </div> -->
 
     <div class="qcalc hidden" id="qcalc">
       <div class="controls">
@@ -129,11 +130,16 @@
       <h1>EAMON KEATING</h1>
     </header>
 
+    <div class="scrollbar-background">
+      <div class="sc-bio"></div>
+    </div>
+
     <main>
       <div class="section section1" id="section1">
         <div style="height: 40vh;"></div>
         <h1>Eamon Keating</h1>
         <h2>Drone Photo/Video Specialist</h2>
+        <h2 class="mobile-note"><br>*Note: This site is designed for PC, but has been made to work with mobile.</h2>
 
         <svg class="arrow" onclick="scrollto('#section2')">
           <use href="assets/arrow.svg#img"></use>
@@ -188,7 +194,7 @@
       </div>
       <div class="section bg section4 divider" id="section4">
         <br>
-        <h1>Pricing</h1>
+        <h1>Services</h1>
         <div class="prices" id="prices">
           <div class="card-wrapper hide" id="template-price">
             <div class="card">
@@ -207,7 +213,7 @@
               </div>
               <div style="margin-top: 10px; height: 0px; width: 100%;"></div>
               <div class="divider" style="margin-top: auto;"></div>
-              <h2 class="price">$50</h2>
+              <h2 class="price"></h2>
             </div>
           </div>
 
