@@ -47,6 +47,11 @@ var config = {
             "src": "assets/wes anderson lookin shot.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
+        {
+            "src": "EwGQfp5wpxQ",               // for videos, just paste the youtube video ID
+            "thumbnail": "assets/thumbnails/passreelthumbnail.jpg",   // url to thumbnail
+            "type": 2                           // type 1 = photo, type 2 = video
+        },
     ],
     "packages": [   // list of all of your base packages (tm)
         {
@@ -82,7 +87,7 @@ var config = {
             ],
             "price": [500, 700]
         },
-/*        {
+        {
             "name": "FPV Aerial Videography",
             "description": "A more maneuverable drone, suited to action scenes",
             "features": [
@@ -116,10 +121,10 @@ var config = {
                 "Short property flyaround video",
                 "FPV interior flythrough video",
                 "Photo and video editing and color correction",
-                "House exterior 3D model"
+                "Building exterior 3D model"
             ],
             "price": [300, 550]
-        }, */
+        },
 
 
         // MAKE SURE THIS ENTRY STAYS AT THE BOTTOM !!!
