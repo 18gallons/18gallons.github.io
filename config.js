@@ -137,7 +137,6 @@ var config = {
                 "Extended flight time as needed",
                 "Professional editing, including branding integration",
                 "Customized delivery format (RAW files, specific resolutions, etc.)",
-                "Note: Prices are subject to change based on project complexity and location."
             ],
             "price": ["custom"]
         },
@@ -158,36 +157,52 @@ var config = {
         // custom quote options
 
         {
-            "name": "extra funny",
-            "description": "add extra funny",
-            "price": [10, 20],
+            "name": "1 hour flight time",
+            "description": "Up to 10 hours of normal drone flight. Does not include photo or video.",
+            "price": [100, 150],
             "min": 0,
             "max": 10,   // max quantity of the thing
-            "placeholder": "Quantity"   // ex: quantity, minutes, hours, etc.
+            "placeholder": "Hours"   // ex: quantity, minutes, hours, etc.
         },
         {
-            "name": "NO funny.",
-            "description": "for those who HATE the funny.",
-            "price": [10, 20],
+            "name": "1 hour flight time (FPV)",
+            "description": "Up to 10 hours of FPV flight. Does not include photo or video.",
+            "price": [150, 200],
             "min": 0,
-            "max": 1,
-            "placeholder": "Quantity"
+            "max": 10,
+            "placeholder": "Hours"
         },
         {
-            "name": "ALL funny!!!",
-            "description": "for those who LOVE!! the funny.",
-            "price": [499.99],
+            "name": "10 photos",
+            "description": "10 photos, professionally edited.",
+            "price": [100],
+            "min": 0,
+            "max": 10,
+            "placeholder": "Sets of 10"
+        },
+        {
+            "name": "1 minute of video",
+            "description": "1 minute of video, professionally edited and color graded.",
+            "price": [100, 150],
+            "min": 0,
+            "max": 30,
+            "placeholder": "Minutes"
+        },
+        {
+            "name": "Editing rate",
+            "description": "Price per hour spent editing",
+            "price": [60, 110],
             "min": 0,
             "max": 100,
-            "placeholder": "Funnies"
+            "placeholder": "Hours"
         },
         {
-            "name": "ALL funny!!!",
-            "description": "for those who LOVE!! the funny.",
-            "price": [499.99],
-            "min": 0,
-            "max": 100,
-            "placeholder": "Funnies"
+            "name": "Daily Rate",
+            "description": "If you need over the limit for other items, choose this. Includes everything but editing. Minimum of two days.",
+            "price": [1000, 1500],
+            "min": 2,
+            "max": 30,
+            "placeholder": "Days"
         },
     ]
 }

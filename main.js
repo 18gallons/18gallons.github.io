@@ -26,10 +26,10 @@ var video_paused = false;
 var get_coordinates = ["section2", "section3"]
 var section_coordinates = {};
 var preview_id = 0;
-var custom_quote = false;
+var custom_quote = true;
 
 
-var disable_prices = true;
+var disable_prices = false;
 
 
 // mobile css styling (yes mobile support!! fancy, innit??)
