@@ -3,53 +3,53 @@
 
 var config = {
     "bg video": "ZN6MnEeNYO8",  // youtube video ID for the main background video,
-    "bg photo": "assets/thumbnails/finalfinal5.png",    // photo bg for mobile
+    "bg photo": "assets/portfolio/thumbnails/finalfinal5.png",    // photo bg for mobile
 
     "portfolio media": [       // put le images
         {
             "src": "ZN6MnEeNYO8",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/finalfinal5.png",   // url to thumbnail
+            "thumbnail": "assets/portfolio/thumbnails/finalfinal5.png",   // url to thumbnail
             "type": 2                           // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/style_city.png",
+            "src": "assets/portfolio/style_city.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/style_containership.png",
+            "src": "assets/portfolio/style_containership.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/style_tacomanport.png",
+            "src": "assets/portfolio/style_tacomanport.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/tiltshift01.png",
+            "src": "assets/portfolio/tiltshift01.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/KeatingE_WPC_Pattern.png",
+            "src": "assets/portfolio/KeatingE_WPC_Pattern.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/KeatingE_WPC_Curves.png",
+            "src": "assets/portfolio/KeatingE_WPC_Curves.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/KeatingE_04_01.png",
+            "src": "assets/portfolio/KeatingE_04_01.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/KeatingE_04_05.png",
+            "src": "assets/portfolio/KeatingE_04_05.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
-            "src": "assets/wes anderson lookin shot.png",
+            "src": "assets/portfolio/wes anderson lookin shot.png",
             "type": 1   // type 1 = photo, type 2 = video
         },
         {
             "src": "EwGQfp5wpxQ",               // for videos, just paste the youtube video ID
-            "thumbnail": "assets/thumbnails/passreelthumbnail.jpg",   // url to thumbnail
+            "thumbnail": "assets/portfolio/thumbnails/passreelthumbnail.jpg",   // url to thumbnail
             "type": 2                           // type 1 = photo, type 2 = video
         },
     ],
