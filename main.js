@@ -58,7 +58,7 @@ if (windowWidth < windowHeight) {
 if (mobile == false) {
     var node = document.createElement("iframe");
     node.setAttribute("id", "bg-yt");
-    node.setAttribute("src", `https://www.youtube-nocookie.com/embed/${config["bg video"]}?autoplay=1&mute=1&controls=0&loop=1&rel=0&showinfo=0&enablejsapi=1&playlist=${config["bg video"]}`);
+    node.setAttribute("src", `https://www.youtube-nocookie.com/embed/${config["bg video"]}?autoplay=1&mute=1&controls=0&loop=1&hd=1&rel=0&showinfo=0&enablejsapi=1&playlist=${config["bg video"]}`);
     node.setAttribute("frameborder", "0");
     document.querySelector("#bg-container").appendChild(node);
 } else {
