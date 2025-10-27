@@ -33,14 +33,15 @@ var disable_prices = false;
 
 
 // mobile css styling (yes mobile support!! fancy, innit??)
-if (windowWidth < windowHeight) {
+//mobile just works apparently, commented out
+/*if (windowWidth < windowHeight) {
     // MOBILE!!!
     var node = document.createElement("link");
     node.setAttribute("rel", "stylesheet");
     node.setAttribute("href", `mobile.css`);
     document.head.appendChild(node);
     mobile = true;
-}
+}*/
 
 
 

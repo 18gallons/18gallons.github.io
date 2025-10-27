@@ -676,10 +676,10 @@ PRICES */
     transform: rotate(180deg);
 }
 .qcalc.hidden{
-    right: -50vw;
+    right: -60vw;
 }
 .qcalc.expanded.hidden {
-    right: -100vw;
+    right: -120vw;
 }
 .qcalc .divider {
     border-top: 1px solid var(--qcalc-divider);
