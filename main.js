@@ -284,7 +284,7 @@ for (i in config["portfolio media"]) {
         var node = document.querySelector("#template-portfolio-photo").cloneNode(true);
         node.classList.remove("hide");
         node.removeAttribute("id");
-        node.querySelector("img").setAttribute("src", `${info["src"]}`);
+        node.querySelector("img").setAttribute("src", `${info["src"].replaceAll(".","-lowres.")}`);
         node.querySelector("img").setAttribute("onclick", `image_preview(${i})`);
         document.querySelector("#portfolio").appendChild(node);
     } else if (info["type"] == 2) { // video
