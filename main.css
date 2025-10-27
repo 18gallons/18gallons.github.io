@@ -150,8 +150,8 @@ SCROLLBAR */
     z-index: 3000;
 }
 ::-webkit-scrollbar-track {
-    /* background: #789feb; */
-    display: none;
+    background: #00000040;
+    display: fixed;
 }
 
 /*haha i stole this code from the dogecoin website*/
@@ -282,7 +282,8 @@ SECTIONS */
     padding-bottom: 2em;
 }
 .section2 .eicon {
-    height: 30em;
+    height: 30vh;
+    max-width: 80vh;
 }
 .section2 .desc {
     width: 100vw;
@@ -486,10 +487,10 @@ IMAGE/VIDEO PREVIEW*/
 }
 .expand-wrapper img {
     height: 90vh;
+    max-width: 80vh;
 }
 .expand-wrapper iframe {
     height: 90vh;
-    width: 90vw;
 }
 .expand-wrapper .close {
     position: absolute;
