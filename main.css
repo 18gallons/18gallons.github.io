@@ -486,12 +486,12 @@ IMAGE/VIDEO PREVIEW*/
     z-index: 1100;
 }
 .expand-wrapper img {
-    height: 90vh;
+    max-height: 90vh;
     max-width: 80vw;
 }
 .expand-wrapper iframe {
-    height: 90vh;
-    width: 80vw;
+    max-height: 90vh;
+    max-width: 80vw;
 }
 .expand-wrapper .close {
     position: absolute;
