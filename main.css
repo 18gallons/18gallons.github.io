@@ -332,7 +332,7 @@ header {
     background-color: var(--header-bg);
     padding: 5px;
     transition-duration: 250ms;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(3px);
 }
 
 /*     ______  ____    ____    ______  ______  ____   
@@ -477,7 +477,7 @@ IMAGE/VIDEO PREVIEW*/
     top: 0px;
     left: 0px;
     background-color: var(--img-expand-bg);
-    /* backdrop-filter: blur(1px); */
+    backdrop-filter: blur(3px);
     z-index: 100;
     display: flex;
     justify-content: center;
@@ -487,10 +487,11 @@ IMAGE/VIDEO PREVIEW*/
 }
 .expand-wrapper img {
     height: 90vh;
-    max-width: 80vh;
+    max-width: 80vw;
 }
 .expand-wrapper iframe {
     height: 90vh;
+    width: 80vw;
 }
 .expand-wrapper .close {
     position: absolute;

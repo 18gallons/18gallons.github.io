@@ -224,22 +224,23 @@ function page_scroll() {
     scroll_amount = document.querySelector("main").scrollTop;
     update_scrollbar();
 
-    document.querySelector("#scrollbar-container").style = `transform: translate(0px);`;
+    /*document.querySelector("#webkit-scrollbar").style = `transform: translate(0px);`;*/
 
     clearInterval(scrollbar_hide_timeout);
     scrollbar_hide_timeout = setInterval( () => {
-        document.querySelector("#scrollbar-container").style = `transform: translate(100%);`;
+        /*document.querySelector("#webkit-scrollbar").style = `transform: translate(100%);`;*/
     }, 1000);
 
 
     if (mobile == false) {
-        if (scroll_amount > windowHeight + 100) {
+        if (scroll_amount > window.innerHeight) {
             if (video_paused == false) {
                 // pause video (to save resources)
                 player.pauseVideo();
                 video_paused = true;
                 console.log("pausing video to save resouces...");
                 document.querySelector(".background .frame-container").style.display = "none";
+                document.querySelector("header").style = "transform: translate(0px, 0px);";
             }
         } else {
             
@@ -249,6 +250,7 @@ function page_scroll() {
                 video_paused = false;
                 console.log("resuming video...");
                 document.querySelector(".background .frame-container").style.display = "block";
+                document.querySelector("header").style = "transform: translate(0px, -100%);";
             }
 
         }
@@ -265,15 +267,9 @@ function page_scroll() {
         document.querySelector("#section-bgcol").innerHTML = `.section.bg { background-color: rgb(${r}, ${g}, ${b});}`;
     }
     */
-
-    if (scroll_amount >= section_coordinates["section2"]) {
-        document.querySelector("header").style = "transform: translate(0px, 0px);";
-    } else {
-        document.querySelector("header").style = "transform: translate(0px, -100%);";
-    }
 }
 
-document.querySelector("main").onscroll = page_scroll;
+document.querySelector("main").addEventListener("scroll", page_scroll);
 
 
 // PORTFOLIO STUFF
