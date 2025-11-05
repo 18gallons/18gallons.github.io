@@ -90,7 +90,7 @@ function updateoutputs() {
             creditInterest = creditInterest + creditLeft * creditRate;
             mortLeft = mortLeft + mortLeft * monthInterest;
             //console.log("months: " + creditMonths);
-            if ((creditLeft >= creditLimit) || (creditTotal >= normTotal*10 || creditMonths > 30000)) {
+            if ((creditLeft >= creditLimit) || (creditTotal >= normTotal*10)) {
                 var infLoop = true;
                 console.log("infinite loop happening");
                 document.getElementById("inf_loop_warning").removeAttribute("hidden");
@@ -128,7 +128,7 @@ function updateoutputs() {
             creditLeft = creditLeft * (1 + creditRate);
             mortLeft = mortLeft + mortLeft * monthInterest;
             //console.log("months: " + creditMonths);
-            if ((creditLeft >= creditLimit) || (creditTotal >= normTotal*10) || creditMonths > 10000) {
+            if ((creditLeft >= creditLimit) || (creditTotal >= normTotal*10)) {
                 var infLoop = true;
                 console.log("infinite loop happening");
                 document.getElementById("inf_loop_warning").removeAttribute("hidden");
