@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="english">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=2.0, maximum-scale=1.0, user-scalable=no" />
+        <title>18gallons Mortgage Calculator</title>
+        <link rel="stylesheet" href="mortcalc.css">
+        <script src="mortcalc.js" defer></script>
+    </head>
+    <body>
+        <div class="section section1">
+        <h1 class = "padded">Engineering 110 Mortgage Calculator</h1>
+        </div>
+        <p class= "padded">this is a simple tool for comparing paying off a mortgage normally versus paying it off with a source of credit.</p>
+        <div class="section section2">
+            <p class="padded-label">Original Mortgage amount:</p>
+            <div>
+                <input class="padded-input" type="number" id="ini_amt" name="initial amount" min = "50000" max = "1000000000000" placeholder="435000" onchange="updateoutputs()">
+                <span>$</span>
+            </div>
+            <p class="padded-label">Mortgage Term:</p>
+            <div>
+                <input class="padded-input" type="number" id="mort_term" name="mortgage term" min = "1" max = "1000" placeholder="30" onchange="updateoutputs()">
+                <span>Years</span>
+            </div>
+            <p class="padded-label">Down Payment:</p>
+            <div>
+                <input class="padded-input" type="number" id="down_pay" name="down payment" min = "0" max = "100" placeholder="20" onchange="updateoutputs()">
+                <span>%</span>
+            </div>
+            <p class="padded-label">Mortgage Interest Rate:</p>
+            <div>
+                <input class="padded-input" type="number" id="mort_interest" name="mortgage interest" min = "0" max = "100f" placeholder="6.5" onchange="updateoutputs()">
+                <span>% annually</span>
+            </div>
+            <br>
+            <div>
+                <span class="padded-label">simple interest PLOC</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="slider round" onclick="updatecredit()"></span>
+                </label>
+                <span class="padded-label">Compount interest credit card</span>
+            </div>
+            <p class="padded-label" id="credit_limit_label">Credit Limit:</p>
+            <div>
+                <input class="padded-input" type="number" id="credit_limit" name="credit limit" min = "200" max = "1000000000000"placeholder="25000" onchange="updateoutputs()">
+                <span>$</span>
+            </div>
+            <p class="padded-label" id="credit_rate_label">Credit Interest Rate:</p>
+            <div>
+                <input class="padded-input" type="number" id="credit_rate" name="credit rate" min = "0" max = "100" placeholder="4" onchange="updateoutputs()">
+                <span>% annually</span>
+            </div>
+            <p class="padded-label">Savings Available Available for Credit Payment:</p>
+            <div>
+                <input class="padded-input" type="number" id="savings" name="monthly savings" min = "100" max = "1000000000000" placeholder="2500" onchange="updateoutputs()">
+                <span>$ per month</span>
+            </div>
+        </div>
+        <div class="section section3">
+            <p class="padded-label">Usually banks will charge you an early repayment fee.</p>
+            <p class="padded-label">This can be anything from an extra percentage on payments larger than expected, to just charging a lot of interest if you pay it off too fast.</p>
+            <br>
+            <p class="padded-label">Include Early Payment Penalty?</p>
+            <br>
+            <div>
+                <span class="padded-label">yes</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="slider2 round" onclick="togglepenalty()"></span>
+                </label>
+                <span class="padded-label">no</span>
+            </div>
+            <br>
+            <div id="penalty_config" hidden>
+                <p class="padded-label" id="penalty">Penalty if paid off early:</p>
+                <div>
+                    <input class="padded-input" type="number" id="penal_amt" name="penalty-amount" min="1" max="100" placeholder="6" onchange="updateoutputs()">
+                    <select class="padded-input" id="penal_type" name="penalty-type" onchange="updateoutputs()">
+                        <option value="0">Months Interest</option>
+                        <option value="1">% of Principle</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h3 class="whoa-mama-big-warning" id="inf_loop_warning" hidden>Calculations halted to save computing power. Outputs will be inaccurate.</h3>
+        <div class="section section4">
+            <h3 class="padded-label" id="norm_month">Normal monthly payment: </h3>
+            <br>
+            <h3 class="padded-label" id="norm_total">Total money spent without credit: </h3>
+            <br>
+            <h3 class="padded-label" id="norm_int">Extra cost due to interest without credit: </h3>
+            <br>
+            <h3 class="padded-label" id="cred_month">Monthly payment with credit: </h3>
+            <br>
+            <h3 class="padded-label" id="cred_total">Total money spent with credit: </h3>
+            <br>
+            <h3 class="padded-label" id="cred_int">Extra cost due to interest with credit: </h3>
+            <br>
+            <h3 class="padded-label" id="extra_penalty">Extra cost due to early payment penalty: </h3>
+            <h3 class="padded-label" id="time">Time to pay off with credit: </h3>
+            <br>
+            <h3 class="padded-label" id="time_saved">Time saved: </h3>
+            <br>
+            <h3 class="padded-label" id="save_rate">Savings rate: </h3>
+        </div>
+        <div class="info-container" onclick="openinfo()">
+            <img class="info" src="info.png">
+        </div>
+        <div class="info-overlay" id="info_overlay" hidden>
+            <p class="padded-label info-text.first">Unlike the original calculator, this one excludes the normal monthly mortgage payment from the credit calculations.</p>
+            <p class="padded-label info-text">This is because I felt it was a bit misleading to do it like that.</p>
+            <p class="padded-label info-text">It's likely because the AI was asked to "create a website to prove that using an external source of credit is better than just paying off a mortgage normally."</p>
+            <p class="padded-label info-text">AI does its best to give you what you want, often to the detriment of acccurate information..</p>
+        </div>
+    </body>
+    <footer>
+        <a href="../hub.html"><h1>return to hub</h1></a>
+    </footer>

@@ -162,12 +162,13 @@ SCROLLBAR */
 
 .scrollbar-background .sc-bio {
     position: fixed;
-    width: 20px;
+    width: 100vw;
     height: 100vh;
     z-index: -10;
     background-color: var(--page-bg);
     top: 100vw;
     right: 0px;
+    transition-duration: 0ms;
 }
 
 /* #scrollbar-container {
@@ -862,4 +863,28 @@ main.e404 {
 }
 main.e404 p {
     color: var(--page-alt);
+}
+
+
+
+
+
+
+/* hub for class stuff */
+
+main.ehub {
+ width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.35rem;
+    color: var(--page-main);
+}
+main.ehub p {
+    color: var(--page-alt);
+}
+main.padded {
+    padding:15px;
 }

@@ -1,0 +1,313 @@
+@font-face {
+    font-family: Heebo;
+    src: url(../assets/Heebo.ttf);
+}
+
+
+/*     ______  ____    __      ____    __  __  ____        ____    ______  ______  ____  _   __  ____  ______  ____  ____    _   __  _____  
+      / ____/ / __ \  / /     / __ \  / / / / / __ \      / __ \  / ____/ / ____/ /  _/ / | / / /  _/ /_  __/ /  _/ / __ \  / | / / / ___/ 
+     / /     / / / / / /     / / / / / / / / / /_/ /     / / / / / __/   / /_     / /  /  |/ /  / /    / /    / /  / / / / /  |/ /  \__ \ 
+    / /___  / /_/ / / /___  / /_/ / / /_/ / / _, _/     / /_/ / / /___  / __/   _/ /  / /|  / _/ /    / /   _/ /  / /_/ / / /|  /  ___/ /
+    \____/  \____/ /_____/  \____/  \____/ /_/ |_|     /_____/ /_____/ /_/     /___/ /_/ |_/ /___/   /_/   /___/  \____/ /_/ |_/  /____/
+COLOUR DEFINITIONS */
+
+:root {
+    --page-bg: #0e0e0e;
+    --page-main: #ffffff;
+    --page-accent: #9642c7;
+    --page-alt: #d1d1d1;
+    --header-bg: #47474720;
+    --section-bg: #0e0e0e;
+    --section-divider: #181818;
+    --section1-bg: #00000040;
+
+    --footer-bg: #1b1b1b;
+    --portfolio-bg: #080808;
+    --portfolio-card-bg: #1b1b1b;
+    --portfolio-video-overlay: #00000020;
+    --img-expand-bg: #000000b3;
+    --arrow-bg: #00000020;
+    --prices-card-bg: #141414;
+    --prices-divider: #242424;
+    --features-divider: #252525;
+    --features-list-item: #cfcfcf;
+    --button-bg: #1a1a1a;
+    --button-bg-hover: #1d1d1d;
+    --qcalc-bg: #141414;
+    --qcalc-border: #1f1e1e;
+    --qcalc-divider: #1f1e1e;
+    --qcalc-card-bg: #1a1a1a;
+    --qcalc-card-bg-alt: #1d1d1d;
+    --qcalc-card-divider: #2b2b2b;
+    --qcalc-number-bg: #202020;
+    --qcalc-number-border: #292929;
+    --qcalc-pql: #9b9b9b;
+    --checkbox-bg: #333333;
+    --checkbox-tr-duration: 200ms;
+    --checkbox-ch-duration: 100ms; /* REMEMBER if you change this, change it in the javascript too!!!! */
+    --form-bg: #dadada;
+    --form-border: #c2c2c2;
+
+    --portfolio-img: 15em;
+}
+
+
+/*     __  ___  ___      ____  _   __      _____   ____  ______  ______ 
+      /  |/  / /   |    /  _/ / | / /     / ___/  /  _/ /_  __/ / ____/
+     / /|_/ / / /| |    / /  /  |/ /      \__ \   / /    / /   / __/  
+    / /  / / / ___ |  _/ /  / /|  /      ___/ / _/ /    / /   / /___ 
+   /_/  /_/ /_/  |_| /___/ /_/ |_/      /____/ /___/   /_/   /_____/
+MAIN SITE */
+
+body, html {
+    font-family: Heebo;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    cursor: default;
+    width: 100vw;
+    min-width: 100vw;
+    background-color: var(--page-bg);
+    color: var(--page-main);
+}
+
+p, h1, h2, h3, h4, h5, h6, span {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.section {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    font-size: inherit;
+    width: 33.33vw;
+}
+
+.section1 {
+    display:flex;
+    flex-direction: column;
+    width:100vw;
+    align-items: center;
+}
+
+.section2 {
+    position: absolute;
+    /*display:flex;
+    flex-direction: column;*/
+    width:33.33vw;
+    left:0px;
+    text-align: center;
+}
+
+.section3 {
+    position: absolute;
+    width: 33.33vw;
+    left: 33.333vw;
+    align-items: left;
+}
+
+.section4 {
+    position: absolute;
+    width: 33.333vw;
+    align-items: left;
+    right: 0px;
+    top: 15vh;
+}
+
+.whoa-mama-big-warning {
+    position: absolute;
+    width: 33.333vw;
+    left: 33.333vw;
+    top: 60vh;
+}
+
+.padded {
+    padding:15px;
+}
+
+.padded-label {
+    padding:15px;
+    padding-bottom:5px;
+}
+
+.padded-input {
+    padding:15px;
+    margin: 15px;
+    margin-top: 0px;
+    background-color: var(--prices-card-bg);
+    border: var(--qcalc-border);
+    color: var(--page-main);
+}
+
+.toggle-switch {
+    position:relative;
+    display: inline-block;
+    padding: 15px;
+    margin-left: 0px;
+    width: 30px;
+    height: 6px;
+    vertical-align: middle;
+}
+
+.toggle-switch input {
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--page-bg);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 5px;
+  background-color: var(--page-alt);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider2 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--page-bg);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider2:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  right: 4px;
+  bottom: 5px;
+  background-color: var(--page-alt);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider2:before {
+  -webkit-transform: translateX(-26px);
+  -ms-transform: translateX(-26px);
+  transform: translateX(-26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 24px;
+    outline-style: inset;
+    outline-width: 3px;
+    outline-color: var(--page-main);
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.slider2.round {
+    border-radius: 24px;
+    outline-style: inset;
+    outline-width: 3px;
+    outline-color: var(--page-main);
+}
+
+.slider2.round:before {
+  border-radius: 50%;
+}
+
+
+.info-container {
+    position: absolute;
+    right: 01vw;
+    top: 01vh;
+    width: 03vw;
+    z-index: 101;
+}
+.info {
+    width: 03vw;
+    z-index: 102;
+}
+
+.info-overlay {
+    position:fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--section1-bg);
+    opacity: 1;
+    backdrop-filter: blur(12px);
+    z-index: 100;
+}
+.info-text {
+    opacity: 1;
+}
+
+/*     __  __  ______  ___      ____    ______  ____   
+      / / / / / ____/ /   |    / __ \  / ____/ / __ \ 
+     / /_/ / / __/   / /| |   / / / / / __/   / /_/ /
+    / __  / / /___  / ___ |  / /_/ / / /___  / _, _/
+   /_/ /_/ /_____/ /_/  |_| /_____/ /_____/ /_/ |_|
+HEADER */
+
+header {
+    width: 100vw;
+    height: fit-content;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 900;
+    display: flex;
+    justify-content: center;
+    background-color: var(--header-bg);
+    padding: 5px;
+    transition-duration: 250ms;
+    backdrop-filter: blur(3px);
+}
+
+
+
+/*     ______  ____    ____    ______  ______  ____   
+      / ____/ / __ \  / __ \  /_  __/ / ____/ / __ \ 
+     / /_    / / / / / / / /   / /   / __/   / /_/ /
+    / __/   / /_/ / / /_/ /   / /   / /___  / _, _/
+   /_/      \____/  \____/   /_/   /_____/ /_/ |_|
+FOOTER */
+
+footer {
+    width: 100vw;
+    min-height: 3.5em;
+    position: fixed;
+    bottom: 0px;
+    left:0px;
+    display: flex;
+    background-color: var(--footer-bg);
+    align-items: center;
+}
