@@ -125,18 +125,14 @@ p, h1, h2, h3, h4, h5, h6, span {
     top: 60vh;
 }
 
-.padded {
-    padding:15px;
-}
-
 .padded-label {
-    padding:15px;
-    padding-bottom:5px;
+    padding:1rem;
+    padding-bottom:0.5rem;
 }
 
 .padded-input {
-    padding:15px;
-    margin: 15px;
+    padding:0.55rem;
+    margin: 0.15rem;
     margin-top: 0px;
     background-color: var(--prices-card-bg);
     border: var(--qcalc-border);
@@ -146,10 +142,10 @@ p, h1, h2, h3, h4, h5, h6, span {
 .toggle-switch {
     position:relative;
     display: inline-block;
-    padding: 15px;
+    padding: 1rem;
     margin-left: 0px;
-    width: 30px;
-    height: 6px;
+    width: 2rem; /*32px*/
+    height: 0.25rem;
     vertical-align: middle;
 }
 
@@ -174,19 +170,19 @@ p, h1, h2, h3, h4, h5, h6, span {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 5px;
+  height: 1.75rem;
+  width: 1.75rem;
+  left: 0.25rem;
+  bottom: 0.25rem;
   background-color: var(--page-alt);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(1.75rem);
+  -ms-transform: translateX(1.75rem);
+  transform: translateX(1.75rem);
 }
 
 .slider2 {
@@ -204,26 +200,26 @@ input:checked + .slider:before {
 .slider2:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  right: 4px;
-  bottom: 5px;
+  height: 1.75rem;
+  width: 1.75rem;
+  right: 0.25rem;
+  bottom: 0.25rem;
   background-color: var(--page-alt);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider2:before {
-  -webkit-transform: translateX(-26px);
-  -ms-transform: translateX(-26px);
-  transform: translateX(-26px);
+  -webkit-transform: translateX(-1.75rem);
+  -ms-transform: translateX(-1.75rem);
+  transform: translateX(-1.75rem);
 }
 
 /* Rounded sliders */
 .slider.round {
-    border-radius: 24px;
+    border-radius: 1.75rem;
     outline-style: inset;
-    outline-width: 3px;
+    outline-width: 0.25rem;
     outline-color: var(--page-main);
 }
 
@@ -232,9 +228,9 @@ input:checked + .slider2:before {
 }
 
 .slider2.round {
-    border-radius: 24px;
+    border-radius: 1.75rem;
     outline-style: inset;
-    outline-width: 3px;
+    outline-width: 0.25rem;
     outline-color: var(--page-main);
 }
 
@@ -263,7 +259,7 @@ input:checked + .slider2:before {
     height: 100vh;
     background-color: var(--section1-bg);
     opacity: 1;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(0.75rem);
     z-index: 100;
 }
 .info-text {
@@ -287,9 +283,9 @@ header {
     display: flex;
     justify-content: center;
     background-color: var(--header-bg);
-    padding: 5px;
+    padding: 0.25rem;
     transition-duration: 250ms;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(0.25rem);
 }
 
 

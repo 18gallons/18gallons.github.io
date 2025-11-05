@@ -75,6 +75,7 @@ function updateoutputs() {
     var credInt = 0;
     var credYears = 0;
     var timeSaved = 0;
+    var penalTotal = 0;
     var infLoop = false;
     if (isPloc) {
         var creditInterest = 0;
@@ -101,10 +102,12 @@ function updateoutputs() {
         creditLeft = creditLeft + mortLeft;
         //console.log("penalty: " + isPenalty + " penaltype: " + penalType);
         if (isPenalty && penalType == 0) {
+            penalTotal = creditLeft * (1 + creditRate) ** penalAmt - creditLeft;
             //console.log("credit left before penalty: " + creditLeft);
             creditInterest = creditInterest + creditLeft * (1 + creditRate) ** penalAmt - creditLeft;
             //console.log("credit interest after penalty: " + creditInterest);
         } else if (isPenalty && penalType == 1) {
+            penalTotal = creditLeft * (penalAmt / 100);
             creditInterest = creditInterest + creditLeft * (penalAmt / 100);
         }
         for(; (creditLeft >= savings) && !infLoop; ) {
@@ -136,8 +139,10 @@ function updateoutputs() {
         }
         creditLeft = creditLeft + mortLeft;
         if (isPenalty && penalType == 0) {
+            penalTotal = creditLeft * (1 + creditRate) ** penalAmt - creditLeft;
             creditLeft = creditLeft * (1 + creditRate) ** penalAmt;
         } else if (isPenalty && penalType == 1) {
+            penalTotal = creditLeft * (penalAmt / 100) - creditLeft;
             creditLeft = creditLeft + creditLeft * (penalAmt / 100);
         }
         for(; (creditLeft >= savings) && !infLoop; ) {
@@ -152,7 +157,8 @@ function updateoutputs() {
     credMonthly = parseInt(creditTotal / creditMonths);
     credYears = parseInt((creditMonths / 12) * 10) / 10;
     credInt = parseInt(creditTotal - principle);
-    timeSaved = parseInt((inputValues[1] - credYears) * 10) / 10; 
+    timeSaved = parseInt((inputValues[1] - credYears) * 10) / 10;
+    penalTotal = parseInt(penalTotal);
 
 
     
@@ -179,6 +185,7 @@ if(!infLoop) {
     document.getElementById("time").innerHTML = "Time to pay off with credit: " + credYears + " years";
     document.getElementById("time_saved").innerHTML = "Time saved: " + timeSaved + " years";
     document.getElementById("save_rate").innerHTML = "Savings rate: " + parseInt(((normTotal - creditTotal) / normTotal) * 100) + "% of normal total";
+    document.getElementById("extra_penalty").innerHTML = "Cost of Penalty: $" + penalTotal;
 }
 
 function openinfo() {

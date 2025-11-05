@@ -9,9 +9,9 @@
     </head>
     <body>
         <div class="section section1">
-        <h1 class = "padded">Engineering 110 Mortgage Calculator</h1>
+            <h1 class = "padded">Engineering 110 Mortgage Calculator</h1>
+            <p class= "padded">this is a simple tool for comparing paying off a mortgage normally versus paying it off with a source of credit.</p>
         </div>
-        <p class= "padded">this is a simple tool for comparing paying off a mortgage normally versus paying it off with a source of credit.</p>
         <div class="section section2">
             <p class="padded-label">Original Mortgage amount:</p>
             <div>
@@ -82,6 +82,8 @@
                         <option value="1">% of Principle</option>
                     </select>
                 </div>
+                <br>
+                <h3 class="padded-label" id="extra_penalty">Cost of penalty: </h3>
             </div>
         </div>
         <h3 class="whoa-mama-big-warning" id="inf_loop_warning" hidden>Calculations halted to save computing power. Outputs will be inaccurate.</h3>
@@ -98,7 +100,6 @@
             <br>
             <h3 class="padded-label" id="cred_int">Extra cost due to interest with credit: </h3>
             <br>
-            <h3 class="padded-label" id="extra_penalty">Extra cost due to early payment penalty: </h3>
             <h3 class="padded-label" id="time">Time to pay off with credit: </h3>
             <br>
             <h3 class="padded-label" id="time_saved">Time saved: </h3>
