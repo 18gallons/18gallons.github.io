@@ -61,6 +61,7 @@ MAIN SITE */
 
 body, html {
     font-family: Heebo;
+    font-size: 1.65vh;
     margin: 0px;
     padding: 0px;
     border: 0px;
@@ -81,6 +82,10 @@ p, h1, h2, h3, h4, h5, h6, span {
 
 a, a.visited {
     color: var(--page-main);
+}
+
+br {
+    line-height: 1rem;
 }
 
 .section {
@@ -118,7 +123,7 @@ a, a.visited {
 .section4 {
     position: absolute;
     width: 33.333vw;
-    align-items: left;
+    align-items: center;
     right: 0px;
     top: 15vh;
 }
