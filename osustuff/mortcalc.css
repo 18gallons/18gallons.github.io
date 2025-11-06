@@ -79,6 +79,10 @@ p, h1, h2, h3, h4, h5, h6, span {
     margin: 0px;
 }
 
+a, a.visited {
+    color: var(--page-main);
+}
+
 .section {
     position: relative;
     z-index: 10;
@@ -101,6 +105,7 @@ p, h1, h2, h3, h4, h5, h6, span {
     width:33.33vw;
     left:0px;
     text-align: center;
+    margin-bottom: 3.5em;
 }
 
 .section3 {

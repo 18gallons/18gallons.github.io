@@ -885,6 +885,6 @@ main.ehub {
 main.ehub p {
     color: var(--page-alt);
 }
-main.padded {
+.padded {
     padding:15px;
 }
