@@ -1,0 +1,138 @@
+@font-face {
+    font-family: Urbanist;
+    src: url(../assets/Urbanist-VariableFont_wght.ttf);
+}
+
+
+/*     ______  ____    __      ____    __  __  ____        ____    ______  ______  ____  _   __  ____  ______  ____  ____    _   __  _____  
+      / ____/ / __ \  / /     / __ \  / / / / / __ \      / __ \  / ____/ / ____/ /  _/ / | / / /  _/ /_  __/ /  _/ / __ \  / | / / / ___/ 
+     / /     / / / / / /     / / / / / / / / / /_/ /     / / / / / __/   / /_     / /  /  |/ /  / /    / /    / /  / / / / /  |/ /  \__ \ 
+    / /___  / /_/ / / /___  / /_/ / / /_/ / / _, _/     / /_/ / / /___  / __/   _/ /  / /|  / _/ /    / /   _/ /  / /_/ / / /|  /  ___/ /
+    \____/  \____/ /_____/  \____/  \____/ /_/ |_|     /_____/ /_____/ /_/     /___/ /_/ |_/ /___/   /_/   /___/  \____/ /_/ |_/  /____/
+COLOUR DEFINITIONS */
+
+:root {
+    --page-bg: #0e0e0e;
+    --page-main: #ffffff;
+    --page-accent: #9642c7;
+    --page-alt: #d1d1d1;
+    --header-bg: #47474720;
+    --section-bg: #0e0e0e;
+    --section-divider: #181818;
+    --section1-bg: #00000040;
+
+    --footer-bg: #1b1b1b;
+    --portfolio-bg: #080808;
+    --portfolio-card-bg: #1b1b1b;
+    --portfolio-video-overlay: #00000020;
+    --img-expand-bg: #000000b3;
+    --arrow-bg: #00000020;
+    --prices-card-bg: #141414;
+    --prices-divider: #242424;
+    --features-divider: #252525;
+    --features-list-item: #cfcfcf;
+    --button-bg: #1a1a1a;
+    --button-bg-hover: #1d1d1d;
+    --qcalc-bg: #141414;
+    --qcalc-border: #1f1e1e;
+    --qcalc-divider: #1f1e1e;
+    --qcalc-card-bg: #1a1a1a;
+    --qcalc-card-bg-alt: #1d1d1d;
+    --qcalc-card-divider: #2b2b2b;
+    --qcalc-number-bg: #202020;
+    --qcalc-number-border: #292929;
+    --qcalc-pql: #9b9b9b;
+    --checkbox-bg: #333333;
+    --checkbox-tr-duration: 200ms;
+    --checkbox-ch-duration: 100ms; /* REMEMBER if you change this, change it in the javascript too!!!! */
+    --form-bg: #dadada;
+    --form-border: #c2c2c2;
+
+    --portfolio-img: 15em;
+}
+
+
+/*     __  ___  ___      ____  _   __      _____   ____  ______  ______ 
+      /  |/  / /   |    /  _/ / | / /     / ___/  /  _/ /_  __/ / ____/
+     / /|_/ / / /| |    / /  /  |/ /      \__ \   / /    / /   / __/  
+    / /  / / / ___ |  _/ /  / /|  /      ___/ / _/ /    / /   / /___ 
+   /_/  /_/ /_/  |_| /___/ /_/ |_/      /____/ /___/   /_/   /_____/
+MAIN SITE */
+
+
+body, html {
+    font-family: Urbanist;
+    font-size: 1.65vh;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    cursor: default;
+    width: 100vw;
+    background-color: var(--page-bg);
+    color: var(--page-main);
+}
+
+p, h1, h2, h3, h4, h5, h6, span {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+a, a.visited {
+    color: var(--page-main);
+}
+
+p {
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
+br {
+    line-height: 1rem;
+}
+
+.section {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    font-size: inherit;
+}
+.main-header {
+    top:0;
+    left:0;
+    height:5vh;
+    position: fixed;
+    width: 100vw;
+    z-index: 50;
+    backdrop-filter: blur(3px);
+}
+.section2 {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    min-width: 30em;
+    max-width: 95vw;
+}
+.desc {
+    width: 80vw;
+    overflow-wrap: normal;
+    text-align: center;
+    max-width: 80vw;
+    z-index: 50;
+}
+
+.bg1 {
+    height: 500vh;
+    overflow: visible;
+}
+
+.bg-container {
+    top:5vh;
+    position: sticky;
+    z-index: 0;
+}
+
+.image1 {
+    z-index: 0;
+    width: 100%;
+    position:relative;
+}
