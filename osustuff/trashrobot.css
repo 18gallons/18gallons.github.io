@@ -76,6 +76,7 @@ p, h1, h2, h3, h4, h5, h6, span {
     border: 0px;
     padding: 0px;
     margin: 0px;
+    position: relative;
 }
 
 a, a.visited {
@@ -114,14 +115,18 @@ br {
 }
 .desc {
     width: 80vw;
+    position: absolute;
     overflow-wrap: normal;
     text-align: center;
     max-width: 80vw;
     z-index: 50;
+    left:50vw;
+    transform:translatex(-50%);
+    backdrop-filter: blur(3px);
 }
 
 .bg1 {
-    height: 500vh;
+    height: 200vh;
     overflow: visible;
 }
 
