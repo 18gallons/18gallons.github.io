@@ -105,7 +105,7 @@ br {
     position: fixed;
     width: 100vw;
     z-index: 50;
-    backdrop-filter: blur(3px) brightness(75%);
+    backdrop-filter: blur(3px);
 }
 .section2 {
     margin-left: 10vw;
@@ -133,7 +133,7 @@ br {
     top:5vh;
     height:5vh;
     text-align: center;
-    backdrop-filter: blur(3px) brightness(75%);
+    backdrop-filter: blur(3px);
 }
 
 .bg1 {
