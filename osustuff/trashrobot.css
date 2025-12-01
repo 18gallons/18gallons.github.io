@@ -105,7 +105,7 @@ br {
     position: fixed;
     width: 100vw;
     z-index: 50;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px) brightness(75%);
 }
 .section2 {
     margin-left: 10vw;
@@ -114,24 +114,36 @@ br {
     max-width: 95vw;
 }
 .desc {
-    width: 80vw;
-    position: absolute;
+    top:9.9vh;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+    position: sticky;
     overflow-wrap: normal;
     text-align: center;
     max-width: 80vw;
     z-index: 50;
-    left:50vw;
-    transform:translatex(-50%);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px) brightness(75%);
+    border-radius: 1rem;
+}
+
+.section-label {
+    position: sticky;
+    top:5vh;
+    height:5vh;
+    text-align: center;
+    backdrop-filter: blur(3px) brightness(75%);
 }
 
 .bg1 {
-    height: 200vh;
+    height: 180rem;
     overflow: visible;
+    z-index: 5;
 }
 
 .bg-container {
-    top:5vh;
+    top:0vh;
     position: sticky;
     z-index: 0;
 }
@@ -140,4 +152,23 @@ br {
     z-index: 0;
     width: 100%;
     position:relative;
+}
+
+.button {
+    width: 12rem;
+    font-size: 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition-duration: 250ms;
+    background-color: var(--button-bg);
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 6000;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+.button:hover {
+    background-color: var(--button-bg-hover);
 }
